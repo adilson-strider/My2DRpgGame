@@ -3,6 +3,8 @@ package main;
 import java.awt.Dimension;
 import java.awt.Color;
 import javax.swing.JPanel;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -35,9 +37,25 @@ public class GamePanel extends JPanel implements Runnable {
 
         while(gameThread != null){
 
-            System.out.println("Rodando...");
-        }
+            update();
 
+            repaint();
+        }
+    }
+
+    public void update(){
+
+    }
+
+    public void paintComponent(Graphics g){
+
+        super.paintComponent(g);
+
+        Graphics2D g2 = (Graphics2D)g;
+
+        g2.setColor(Color.WHITE);
+        g2.fillRect(50, 50, tileSize, tileSize);
+        g2.dispose();
     }
 
 }
